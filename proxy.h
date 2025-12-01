@@ -106,6 +106,24 @@ int handle_server(const char* hostname, int port) {
     return serverSocket;
 }
 
+char* filter_header_out(const char* client_headers, char* filtered_headers) {
+    char filtered_req[8192] = "";
+    char* line = strtok(client_headers, "\r\n");
+    while (line) {
+        if (strncasecmp(line, "Host:", 5) != 0 &&
+            strncasecmp(line, "Connection:", 11) != 0 &&
+            strncasecmp(line, "Proxy-Connection:", 17) != 0 &&
+            strncasecmp(line, "User-Agent:", 11) != 0 &&
+            strncasecmp(line, "Accept-Encoding:", 16) != 0)
+        {
+            strcat(filtered_req, line);
+            strcat(filtered_req, "\r\n");
+        }
+        line = strtok(NULL, "\r\n");
+    }
+    strcat(filtered_headers, filtered_req);
+}
+
 void build_http_request(char* outbuf, const char* hostname, const char* path, const char* client_headers) {
     
     //put all in one string

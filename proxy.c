@@ -50,8 +50,13 @@ int main(int argc, char **argv)
             continue;
         }
 
+        char filtered_headers[8192] = "";
         char outgoing_req[8192];
-        build_http_request(outgoing_req, client_metadata.hostname, client_metadata.path, client_headers);
+        
+        /*Remove headers the proxy must override(Host, Connection, etc.) to
+        avoid duplicates that cause servers to return 400 Bad Request on web server.*/
+        filter_header_out(client_headers,filtered_headers);
+        build_http_request(outgoing_req, client_metadata.hostname, client_metadata.path, filtered_headers);
         printf("==============Forwarding request=================: \n%s\n============================\n", outgoing_req);
 
         //send and receive 
