@@ -28,5 +28,5 @@ Base code and documentation for WSU CPTS360 Programming Assignment 4 (Web Proxy)
     usage: `./free-port.sh`
 
 `tiny`
-    Tiny Web server from the CSAPP textbook
+    Tiny Web server from the CSAPP textbook. Using linux nwtwork APIs, it relays client-server requ3est forwarding
 
