@@ -1,18 +1,15 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/gSU345RY)
+## Web Proxy
+A web proxy application that sits in between and relays HTTP requests between a server and a client. 
 
-#### CPTS 360 Programming Assignment 4
+### Full Documentation
 
-Base code and documentation for WSU CPTS360 Programming Assignment 4 (Web Proxy)
+Refer to `pa4_Gebrewold.pdf` on this repository for a detailed documentation of the application. It contains brief description, architecture and general operations of how the software operates
 
-`proxy.c`
-`csapp.h`
-`csapp.c`
-    These are starter files.  `csapp.c` and `csapp.h` are described in
-    your textbook. You may make any changes you like to these files.  
-    You may create and submit any additional files you like. 
-    You may use `port-for-user.pl` or `free-port.sh` to generate
-    unique ports for your proxy or tiny server. 
+### Installation
 
+Follow the commands below only on linux terminal or windows terminal with linux support
+
+Here are the instructions where required files and commands are stored
 `Makefile`
     This is the makefile that builds the proxy program.  Type `make`
     to build your solution, or `make clean` followed by `make` for a
@@ -29,4 +26,6 @@ Base code and documentation for WSU CPTS360 Programming Assignment 4 (Web Proxy)
 
 `tiny`
     Tiny Web server from the CSAPP textbook. Using linux nwtwork APIs, it relays client-server request forwarding
+
+
 
